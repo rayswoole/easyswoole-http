@@ -62,7 +62,7 @@ class UploadFile implements UploadedFileInterface
         if (!$moved) {
             throw new FileException(sprintf('Uploaded file could not be move to %s', $dir));
         }
-        @chmod($target, 0666 & ~umask());
+        @chmod($targetPath, 0666 & ~umask());
 
         /*if ($movedSize !== $this->size) {
             throw new FileException(sprintf('File upload specified directory(%s) interrupted', $dir));
